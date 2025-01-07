@@ -12,7 +12,7 @@ public class Calculator extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         ServletContext application = request.getServletContext(); // application객체 (servlet context)
-
+        HttpSession session = request.getSession();
         //사용자 입력으로부터 value값과 cal값 획득
         String value = request.getParameter("value");
         String cal = request.getParameter("cal");
@@ -28,9 +28,11 @@ public class Calculator extends HttpServlet {
 
         //값을 계산
         if (cal.equals("=")) {
-            int x = (Integer) application.getAttribute("value");
+            //int x = (Integer) application.getAttribute("value");
+            int x = (Integer) session.getAttribute("value");
             int y = value_int;
-            String cal_str = (String) application.getAttribute("cal");
+            //String cal_str = (String) application.getAttribute("cal");
+            String cal_str = (String) session.getAttribute("cal");
             if (cal_str.equals("+")) {
                 int sum = x + y;
                 out.println("<h1>계산 결과 : "+sum+"</h1>");
@@ -50,8 +52,10 @@ public class Calculator extends HttpServlet {
         //값을 저장
         else
         {
-            application.setAttribute("value", value_int);//요소 저장
-            application.setAttribute("cal", cal);//요소 저장
+            //application.setAttribute("value", value_int);//요소 저장
+            //application.setAttribute("cal", cal);//요소 저장
+            session.setAttribute("value", value_int);//요소 저장
+            session.setAttribute("cal", cal);//요소 저장
         }
 
 
