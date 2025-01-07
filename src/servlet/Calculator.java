@@ -11,46 +11,53 @@ public class Calculator extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String f_num = request.getParameter("f-num");
-        String s_num = request.getParameter("s-num");
-        String cal = request.getParameter("cal");
-        out.println("<a href=\"Calculator.html\">다시 계산하기!</a><br>");
-        if (f_num != null && !f_num.equals("")&&s_num != null && !s_num.equals(""))
-        {
-            if (cal.equals("plus"))
-            {
-                int a = Integer.parseInt(f_num);
-                int b = Integer.parseInt(s_num);
-                int sum = a+b;
-                out.println("<h1>계산 결과 : "+sum+"</h1>");
-            }
-            else if (cal.equals("multiply"))
-            {
-                int a = Integer.parseInt(f_num);
-                int b = Integer.parseInt(s_num);
-                int sum = a*b;
-                out.println("<h1>계산 결과 : "+sum+"</h1>");
-            }
-            else if (cal.equals("minus"))
-            {
-                int a = Integer.parseInt(f_num);
-                int b = Integer.parseInt(s_num);
-                int sum = a-b;
-                out.println("<h1>계산 결과 : "+sum+"</h1>");
-            }
-            else if (cal.equals("divide"))
-            {
-                int a = Integer.parseInt(f_num);
-                int b = Integer.parseInt(s_num);
-                int sum = a/b;
-                out.println("<h1>계산 결과 : "+sum+"</h1>");
-            }
+        ServletContext application = request.getServletContext(); // application객체 (servlet context)
 
-        }
-        else
+        //사용자 입력으로부터 value값과 cal값 획득
+        String value = request.getParameter("value");
+        String cal = request.getParameter("cal");
+
+        //value에 초기값 부여 및 정수화
+        int value_int = 0;
+        if (value != null && !value.equals("")) {
+            value_int = Integer.parseInt(value);
+        }else
         {
             out.println("<h1>올바른 숫자를 입력하세요!</h1>");
         }
+
+        //값을 계산
+        if (cal.equals("=")) {
+            int x = (Integer) application.getAttribute("value");
+            int y = value_int;
+            String cal_str = (String) application.getAttribute("cal");
+            if (cal_str.equals("+")) {
+                int sum = x + y;
+                out.println("<h1>계산 결과 : "+sum+"</h1>");
+            } else if (cal_str.equals("*")) {
+                int sum = x * y;
+                out.println("<h1>계산 결과 : "+sum+"</h1>");
+            } else if (cal_str.equals("-"))
+            {
+                int sum = x - y;
+                out.println("<h1>계산 결과 : "+sum+"</h1>");
+            } else if (cal_str.equals("/"))
+            {
+                int sum = x / y;
+                out.println("<h1>계산 결과 : "+sum+"</h1>");
+            }
+        }
+        //값을 저장
+        else
+        {
+            application.setAttribute("value", value_int);//요소 저장
+            application.setAttribute("cal", cal);//요소 저장
+        }
+
+
+
+        out.println("<a href=\"Calculator.html\">다시 계산하기!</a><br>");
+
 
 
     }
