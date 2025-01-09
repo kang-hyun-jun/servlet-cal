@@ -81,6 +81,7 @@ public class Calculator extends HttpServlet {
             calcookie.setPath("/Calculator");
             response.addCookie(valCookie);
             response.addCookie(calcookie);
+            response.sendRedirect("Calculator.html");
         }
 
 
