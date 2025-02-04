@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My calculater</title>
+    <link rel="icon" type="image/png" href="./img/calculator.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+<div id="app" class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-purple-700 text-white p-4">
+    </nav>
+    <!-- Login Form -->
+    <div  class="container mx-auto p-8">
+        <div class="max-w-md mx-auto bg-amber-50 p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-purple-700 mb-6">calculator</h2>
+            <form action="http://localhost:8080/Calculator" method="post">
+                <table class="w-full">
+                    <tr>
+                        <td colspan="4"><h2 class="text-2xl font-bold text-purple-700 mb-6 pr-5 text-right">0</h2></td>
+                    </tr>
+                    <tr>
+                        <td class="w-1/4"><input type="submit" name ="cal" value="CE" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td class="w-1/4"><input type="submit" name ="cal" value="C" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td class="w-1/4"><input type="submit" name ="cal" value="BS" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td class="w-1/4"><input type="submit" name ="cal" value="÷" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name ="value" value="7" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="8" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="9" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="cal" value="×" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name ="value" value="4" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="5" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="6" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="cal" value="-" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name ="value" value="1" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="2" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="3" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="cal" value="+" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name ="cal" value="±" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="value" value="0" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="cal" value="." class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                        <td><input type="submit" name ="cal" value="=" class="w-full bg-purple-700 text-white py-3 rounded hover:bg-purple-800 transition"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
